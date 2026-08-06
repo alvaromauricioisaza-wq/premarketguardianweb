@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="robots"
+        content="noindex, nofollow"
+    >
+
+    <title>Portal de descarga | Premarket Guardian PRO</title>
+
+    <link
+        rel="icon"
+        type="image/x-icon"
+        href="favicon.ico"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/download.css"
+    >
+</head>
+
+<body>
+
+    <div class="background-glow background-glow-one"></div>
+    <div class="background-glow background-glow-two"></div>
+
+    <header class="portal-header">
+        <a class="brand" href="index.html">
+            <span class="brand-icon">G</span>
+
+            <span class="brand-text">
+                <strong>Premarket Guardian</strong>
+                <small>PRO</small>
+            </span>
+        </a>
+
+        <a
+            class="support-link"
+            href="mailto:soporte@premarketguardian.com"
+        >
+            Soporte
+        </a>
+    </header>
+
+    <main class="portal-main">
+
+        <section id="loading-state" class="state-card">
+            <div class="loader"></div>
+
+            <h1>Verificando tu acceso</h1>
+
+            <p>
+                Estamos validando tu compra y preparando tus archivos.
+            </p>
+        </section>
+
+        <section
+            id="portal-content"
+            class="portal-card hidden"
+        >
+            <div class="success-badge">
+                Compra confirmada
+            </div>
+
+            <div class="portal-heading">
+                <p class="eyebrow">
+                    PREMARKET GUARDIAN PRO
+                </p>
+
+                <h1>Tu producto está listo</h1>
+
+                <p
+                    id="welcome-message"
+                    class="welcome-message"
+                >
+                    Gracias por tu compra.
+                </p>
+            </div>
+
+            <div class="license-panel">
+                <div>
+                    <span class="panel-label">
+                        Tu licencia personal
+                    </span>
+
+                    <strong id="license-key">
+                        XXXX-XXXX-XXXX-XXXX
+                    </strong>
+                </div>
+
+                <button
+                    id="copy-license-button"
+                    class="copy-button"
+                    type="button"
+                >
+                    Copiar licencia
+                </button>
+            </div>
+
+            <div
+                id="copy-message"
+                class="copy-message"
+                aria-live="polite"
+            ></div>
+
+            <div class="information-grid">
+
+                <article class="information-card">
+                    <span class="information-label">
+                        Producto
+                    </span>
+
+                    <strong>
+                        Premarket Guardian PRO
+                    </strong>
+                </article>
+
+                <article class="information-card">
+                    <span class="information-label">
+                        Licencia
+                    </span>
+
+                    <strong>De por vida</strong>
+                </article>
+
+                <article class="information-card">
+                    <span class="information-label">
+                        Versión disponible
+                    </span>
+
+                    <strong id="product-version">
+                        1.0.0
+                    </strong>
+                </article>
+
+            </div>
+
+            <div class="downloads-section">
+                <div class="section-heading">
+                    <h2>Descargas</h2>
+
+                    <p>
+                        Descarga primero el manual y luego instala
+                        Premarket Guardian PRO.
+                    </p>
+                </div>
+
+                <div class="download-grid">
+
+                    <a
+                        id="installer-download"
+                        class="download-card primary-download"
+                        href="#"
+                    >
+                        <div class="download-icon">↓</div>
+
+                        <div>
+                            <span class="download-label">
+                                INSTALADOR PARA WINDOWS
+                            </span>
+
+                            <strong>
+                                Descargar Premarket Guardian PRO
+                            </strong>
+
+                            <small>
+                                Archivo de instalación oficial
+                            </small>
+                        </div>
+                    </a>
+
+                    <a
+                        id="manual-download"
+                        class="download-card"
+                        href="#"
+                    >
+                        <div class="download-icon">↗</div>
+
+                        <div>
+                            <span class="download-label">
+                                GUÍA DE INSTALACIÓN
+                            </span>
+
+                            <strong>
+                                Descargar manual de instalación
+                            </strong>
+
+                            <small>
+                                Documento PDF paso a paso
+                            </small>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="installation-steps">
+                <h2>Pasos para comenzar</h2>
+
+                <ol>
+                    <li>
+                        Descarga y revisa el manual de instalación.
+                    </li>
+
+                    <li>
+                        Descarga el instalador oficial.
+                    </li>
+
+                    <li>
+                        Instala Premarket Guardian PRO.
+                    </li>
+
+                    <li>
+                        Abre el programa e introduce tu licencia.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="security-notice">
+                <strong>
+                    Guarda este enlace y tu licencia.
+                </strong>
+
+                <p>
+                    Son personales y están asociados a tu compra.
+                    No compartas esta información con terceros.
+                </p>
+            </div>
+        </section>
+
+        <section
+            id="error-state"
+            class="state-card error-card hidden"
+        >
+            <div class="error-icon">!</div>
+
+            <h1>No pudimos validar este acceso</h1>
+
+            <p id="error-message">
+                El enlace es inválido, está incompleto o ha expirado.
+            </p>
+
+            <a
+                class="support-button"
+                href="mailto:soporte@premarketguardian.com"
+            >
+                Contactar soporte
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="portal-footer">
+        <p>© 2026 Premarket Guardian PRO</p>
+
+        <p>
+            Herramienta de rutina y disciplina personal.
+            No ofrece asesoría financiera.
+        </p>
+    </footer>
+
+    <script src="js/download.js"></script>
+
+</body>
+</html>
