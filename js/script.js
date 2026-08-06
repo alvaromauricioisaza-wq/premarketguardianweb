@@ -179,6 +179,7 @@ function renderPayPalButtons() {
         },
 
         onApprove: async (data) => {
+            console.log("ON APPROVE", data);
             showPayPalProcessing();
 
             const response = await fetch(
