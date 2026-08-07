@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Política de Privacidad | Premarket Guardian PRO</title>
+
+    <meta
+        name="description"
+        content="Política de Privacidad de Premarket Guardian PRO."
+    >
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(30, 116, 255, 0.10),
+                    transparent 35%
+                ),
+                #07101c;
+            color: #f5f7fb;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .legal-wrapper {
+            width: 100%;
+            padding: 64px 24px;
+            box-sizing: border-box;
+        }
+
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 52px;
+            background: #101c2f;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .legal-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            text-decoration: none;
+        }
+
+        .legal-logo img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+
+        .legal-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .legal-logo-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .legal-logo-pro {
+            margin-top: 5px;
+            color: #2e9cff;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 34px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #1671ff,
+                #27a2ff
+            );
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(22, 113, 255, 0.20);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .volver:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 34px rgba(22, 113, 255, 0.28);
+            text-decoration: none;
+        }
+
+        .legal-container h1 {
+            margin: 0 0 12px;
+            color: #ffffff;
+            font-size: clamp(36px, 5vw, 50px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .fecha {
+            margin: 0 0 38px;
+            color: #8fb8e8;
+            font-size: 16px;
+        }
+
+        .legal-intro {
+            margin-bottom: 42px;
+            padding: 24px;
+            background: rgba(36, 139, 255, 0.07);
+            border: 1px solid rgba(66, 159, 255, 0.18);
+            border-radius: 14px;
+        }
+
+        .legal-container h2 {
+            margin: 42px 0 12px;
+            color: #2e9cff;
+            font-size: 25px;
+            line-height: 1.3;
+        }
+
+        .legal-container p,
+        .legal-container li {
+            color: #d0dbeb;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .legal-container p {
+            margin: 0 0 18px;
+        }
+
+        .legal-container ul {
+            margin: 12px 0 24px;
+            padding-left: 26px;
+        }
+
+        .legal-container li {
+            margin-bottom: 8px;
+        }
+
+        .legal-container strong {
+            color: #ffffff;
+        }
+
+        .legal-container a {
+            color: #46a8ff;
+        }
+
+        .support-box {
+            margin-top: 20px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+        }
+
+        .support-box a {
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .support-box a:hover {
+            text-decoration: underline;
+        }
+
+        .legal-footer {
+            margin-top: 52px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: #7f95b1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .legal-footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .legal-footer-links a {
+            color: #9db3ce;
+            text-decoration: none;
+        }
+
+        .legal-footer-links a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .legal-wrapper {
+                padding: 28px 14px;
+            }
+
+            .legal-container {
+                padding: 30px 22px;
+                border-radius: 18px;
+            }
+
+            .legal-container h2 {
+                font-size: 22px;
+            }
+
+            .legal-container p,
+            .legal-container li {
+                font-size: 16px;
+            }
+
+            .legal-logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .legal-logo-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="legal-wrapper">
+
+        <section class="legal-container">
+
+            <a href="index.html" class="legal-logo">
+                <img src="logo-pg.png" alt="Premarket Guardian PRO">
+
+                <span class="legal-logo-text">
+                    <span class="legal-logo-title">
+                        Premarket Guardian
+                    </span>
+
+                    <span class="legal-logo-pro">
+                        PRO
+                    </span>
+                </span>
+            </a>
+
+            <br>
+
+            <a href="index.html" class="volver">
+                ← Volver al inicio
+            </a>
+
+            <h1>
+                Política de Privacidad
+            </h1>
+
+            <p class="fecha">
+                Última actualización: Agosto de 2026
+            </p>
+
+            <div class="legal-intro">
+                <p>
+                    En Premarket Guardian PRO respetamos la privacidad
+                    de nuestros usuarios y nos comprometemos a proteger
+                    la información personal recopilada durante el proceso
+                    de compra, activación, soporte y uso del software.
+                </p>
+            </div>
+
+            <h2>
+                1. Información que recopilamos
+            </h2>
+
+            <p>
+                Dependiendo del uso de nuestros servicios, podemos
+                recopilar información necesaria para procesar compras,
+                gestionar licencias y proporcionar soporte.
+            </p>
+
+            <p>
+                Esta información puede incluir:
+            </p>
+
+            <ul>
+                <li>
+                    Nombre.
+                </li>
+
+                <li>
+                    Correo electrónico.
+                </li>
+
+                <li>
+                    Identificador único del equipo utilizado para
+                    la activación de la licencia.
+                </li>
+
+                <li>
+                    Dirección IP y datos técnicos básicos relacionados
+                    con la activación o seguridad del servicio.
+                </li>
+
+                <li>
+                    Información relacionada con la compra,
+                    transacción y licencia.
+                </li>
+
+                <li>
+                    Información proporcionada voluntariamente
+                    cuando el usuario solicita soporte técnico.
+                </li>
+            </ul>
+
+            <h2>
+                2. Cómo utilizamos la información
+            </h2>
+
+            <p>
+                Utilizamos la información recopilada únicamente
+                para finalidades relacionadas con la prestación
+                y seguridad del servicio.
+            </p>
+
+            <ul>
+                <li>
+                    Procesar y verificar compras.
+                </li>
+
+                <li>
+                    Generar, entregar y validar licencias.
+                </li>
+
+                <li>
+                    Asociar una licencia al equipo autorizado
+                    cuando corresponda.
+                </li>
+
+                <li>
+                    Proporcionar soporte técnico.
+                </li>
+
+                <li>
+                    Prevenir fraude, abuso o utilización
+                    no autorizada de licencias.
+                </li>
+
+                <li>
+                    Mantener y mejorar el funcionamiento
+                    del software.
+                </li>
+
+                <li>
+                    Cumplir obligaciones legales aplicables.
+                </li>
+            </ul>
+
+            <h2>
+                3. Procesamiento de pagos
+            </h2>
+
+            <p>
+                Los pagos realizados para adquirir Premarket Guardian PRO
+                son procesados a través de proveedores externos
+                especializados en procesamiento de pagos.
+            </p>
+
+            <p>
+                Paddle puede actuar como
+                <strong>Merchant of Record</strong>
+                para las transacciones procesadas mediante su plataforma.
+            </p>
+
+            <p>
+                Premarket Guardian PRO no almacena directamente
+                números completos de tarjetas de crédito,
+                códigos de seguridad ni credenciales bancarias
+                de los compradores.
+            </p>
+
+            <h2>
+                4. Proveedores externos
+            </h2>
+
+            <p>
+                Para operar el servicio podemos utilizar proveedores
+                tecnológicos externos necesarios para funciones como
+                procesamiento de pagos, alojamiento web,
+                distribución digital, seguridad,
+                almacenamiento o envío de comunicaciones.
+            </p>
+
+            <p>
+                Estos proveedores reciben únicamente la información
+                necesaria para prestar el servicio correspondiente
+                y están sujetos a sus propias políticas de privacidad
+                y términos de uso.
+            </p>
+
+            <h2>
+                5. Compartición de información
+            </h2>
+
+            <p>
+                Premarket Guardian PRO no vende la información personal
+                de sus usuarios.
+            </p>
+
+            <p>
+                La información únicamente podrá compartirse cuando
+                sea razonablemente necesario para:
+            </p>
+
+            <ul>
+                <li>
+                    Procesar una compra o pago.
+                </li>
+
+                <li>
+                    Entregar y validar una licencia.
+                </li>
+
+                <li>
+                    Prestar soporte técnico.
+                </li>
+
+                <li>
+                    Prevenir fraude o abuso.
+                </li>
+
+                <li>
+                    Cumplir una obligación legal,
+                    regulatoria o requerimiento de autoridad competente.
+                </li>
+            </ul>
+
+            <h2>
+                6. Seguridad de la información
+            </h2>
+
+            <p>
+                Aplicamos medidas técnicas y organizativas razonables
+                destinadas a proteger la información almacenada
+                frente a accesos no autorizados, pérdida,
+                alteración o uso indebido.
+            </p>
+
+            <p>
+                Sin embargo, ningún sistema conectado a Internet
+                puede garantizar seguridad absoluta.
+            </p>
+
+            <h2>
+                7. Conservación de datos
+            </h2>
+
+            <p>
+                Conservamos la información durante el tiempo necesario
+                para administrar compras, licencias, soporte,
+                prevención de fraude y obligaciones legales aplicables.
+            </p>
+
+            <p>
+                Algunos registros relacionados con transacciones
+                pueden conservarse durante períodos adicionales
+                cuando sean necesarios para fines legales,
+                contables o de seguridad.
+            </p>
+
+            <h2>
+                8. Derechos del usuario
+            </h2>
+
+            <p>
+                Dependiendo de la legislación aplicable,
+                el usuario puede solicitar información relacionada
+                con los datos personales que mantenemos sobre él,
+                así como su actualización, corrección o eliminación
+                cuando corresponda legalmente.
+            </p>
+
+            <p>
+                Estas solicitudes pueden realizarse a través
+                de nuestro correo de soporte.
+            </p>
+
+            <h2>
+                9. Uso por menores de edad
+            </h2>
+
+            <p>
+                Premarket Guardian PRO no está dirigido
+                intencionalmente a menores de edad.
+            </p>
+
+            <p>
+                No recopilamos deliberadamente información personal
+                de menores cuando sabemos que dicha persona
+                no cumple con la edad mínima legal
+                para contratar servicios digitales en su jurisdicción.
+            </p>
+
+            <h2>
+                10. Cambios en esta política
+            </h2>
+
+            <p>
+                Podemos actualizar esta Política de Privacidad
+                cuando sea necesario debido a cambios operativos,
+                tecnológicos, legales o regulatorios.
+            </p>
+
+            <p>
+                La versión vigente estará disponible
+                permanentemente en esta página,
+                indicando la fecha de su última actualización.
+            </p>
+
+            <h2>
+                11. Contacto
+            </h2>
+
+            <p>
+                Si tienes preguntas sobre esta Política de Privacidad
+                o sobre el tratamiento de tu información,
+                puedes comunicarte con nosotros.
+            </p>
+
+            <div class="support-box">
+                <p>
+                    <strong>Soporte de Premarket Guardian PRO</strong>
+                </p>
+
+                <p>
+                    Correo electrónico:
+                    <br>
+
+                    <a href="mailto:soporte@premarketguardian.com">
+                        soporte@premarketguardian.com
+                    </a>
+                </p>
+            </div>
+
+            <footer class="legal-footer">
+
+                <div class="legal-footer-links">
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="terminos.html">
+                        Términos y Condiciones
+                    </a>
+
+                    <a href="reembolsos.html">
+                        Política de Reembolsos
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </div>
+
+                <div>
+                    © 2026 Premarket Guardian PRO.
+                    Todos los derechos reservados.
+                </div>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

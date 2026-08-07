@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Política de Reembolsos | Premarket Guardian PRO</title>
+
+    <meta
+        name="description"
+        content="Política de Reembolsos de Premarket Guardian PRO."
+    >
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(30, 116, 255, 0.10),
+                    transparent 35%
+                ),
+                #07101c;
+            color: #f5f7fb;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .legal-wrapper {
+            width: 100%;
+            padding: 64px 24px;
+            box-sizing: border-box;
+        }
+
+        .legal-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 52px;
+            background: #101c2f;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.03);
+        }
+
+        .legal-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            text-decoration: none;
+        }
+
+        .legal-logo img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+
+        .legal-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .legal-logo-title {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .legal-logo-pro {
+            margin-top: 5px;
+            color: #2e9cff;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 4px;
+        }
+
+        .volver {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 34px;
+            padding: 12px 20px;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #1671ff,
+                #27a2ff
+            );
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 10px 28px rgba(22, 113, 255, 0.20);
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .volver:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 14px 34px rgba(22, 113, 255, 0.28);
+            text-decoration: none;
+        }
+
+        .legal-container h1 {
+            margin: 0 0 12px;
+            color: #ffffff;
+            font-size: clamp(36px, 5vw, 50px);
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .fecha {
+            margin: 0 0 38px;
+            color: #8fb8e8;
+            font-size: 16px;
+        }
+
+        .legal-intro {
+            margin-bottom: 42px;
+            padding: 24px;
+            background: rgba(36, 139, 255, 0.07);
+            border: 1px solid rgba(66, 159, 255, 0.18);
+            border-radius: 14px;
+        }
+
+        .legal-container h2 {
+            margin: 42px 0 12px;
+            color: #2e9cff;
+            font-size: 25px;
+            line-height: 1.3;
+        }
+
+        .legal-container p,
+        .legal-container li {
+            color: #d0dbeb;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .legal-container p {
+            margin: 0 0 18px;
+        }
+
+        .legal-container ul {
+            margin: 12px 0 24px;
+            padding-left: 26px;
+        }
+
+        .legal-container li {
+            margin-bottom: 8px;
+        }
+
+        .legal-container strong {
+            color: #ffffff;
+        }
+
+        .legal-container a {
+            color: #46a8ff;
+        }
+
+        .notice-box {
+            margin-top: 20px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+        }
+
+        .legal-footer {
+            margin-top: 52px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: #7f95b1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .legal-footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+
+        .legal-footer-links a {
+            color: #9db3ce;
+            text-decoration: none;
+        }
+
+        .legal-footer-links a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .legal-wrapper {
+                padding: 28px 14px;
+            }
+
+            .legal-container {
+                padding: 30px 22px;
+                border-radius: 18px;
+            }
+
+            .legal-container h2 {
+                font-size: 22px;
+            }
+
+            .legal-container p,
+            .legal-container li {
+                font-size: 16px;
+            }
+
+            .legal-logo img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .legal-logo-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="legal-wrapper">
+
+        <section class="legal-container">
+
+            <a href="index.html" class="legal-logo">
+                <img src="logo-pg.png" alt="Premarket Guardian PRO">
+
+                <span class="legal-logo-text">
+                    <span class="legal-logo-title">
+                        Premarket Guardian
+                    </span>
+
+                    <span class="legal-logo-pro">
+                        PRO
+                    </span>
+                </span>
+            </a>
+
+            <br>
+
+            <a href="index.html" class="volver">
+                ← Volver al inicio
+            </a>
+
+            <h1>
+                Política de Reembolsos
+            </h1>
+
+            <p class="fecha">
+                Última actualización: Agosto de 2026
+            </p>
+
+            <div class="legal-intro">
+                <p>
+                    Queremos que los clientes tengan claridad sobre
+                    las condiciones aplicables a las compras de
+                    Premarket Guardian PRO. Esta política explica
+                    cuándo puede solicitarse un reembolso y cómo
+                    se gestionan estas solicitudes.
+                </p>
+            </div>
+
+            <h2>
+                1. Producto digital
+            </h2>
+
+            <p>
+                Premarket Guardian PRO es un producto de software
+                distribuido digitalmente.
+            </p>
+
+            <p>
+                Después de la confirmación de la compra,
+                el cliente puede recibir acceso al instalador,
+                instrucciones de activación y una licencia digital.
+            </p>
+
+            <p>
+                No se envían productos físicos.
+            </p>
+
+            <h2>
+                2. Plazo para solicitar un reembolso
+            </h2>
+
+            <p>
+                El cliente puede solicitar un reembolso dentro
+                de los <strong>14 días calendario</strong>
+                siguientes a la fecha de compra.
+            </p>
+
+            <p>
+                Cada solicitud será revisada de acuerdo
+                con las circunstancias particulares de la compra,
+                el estado de la licencia y la legislación aplicable.
+            </p>
+
+            <h2>
+                3. Situaciones elegibles
+            </h2>
+
+            <p>
+                Una solicitud de reembolso puede ser considerada,
+                entre otros casos, cuando:
+            </p>
+
+            <ul>
+                <li>
+                    Exista un problema técnico que impida
+                    utilizar el software y que no pueda ser
+                    solucionado razonablemente mediante soporte.
+                </li>
+
+                <li>
+                    El cliente haya sido cobrado más de una vez
+                    por la misma compra debido a un error
+                    de procesamiento.
+                </li>
+
+                <li>
+                    El producto no haya podido ser entregado
+                    correctamente después de confirmarse el pago.
+                </li>
+
+                <li>
+                    Exista otra circunstancia en la que
+                    la legislación aplicable otorgue al comprador
+                    el derecho a recibir un reembolso.
+                </li>
+            </ul>
+
+            <h2>
+                4. Soporte antes del reembolso
+            </h2>
+
+            <p>
+                Cuando la solicitud esté relacionada con
+                una dificultad técnica, podremos solicitar
+                al cliente información razonable para intentar
+                diagnosticar y solucionar el problema.
+            </p>
+
+            <p>
+                Nuestro objetivo será ofrecer una solución
+                antes de proceder con la cancelación de la compra,
+                siempre que esto sea posible y razonable.
+            </p>
+
+            <h2>
+                5. Situaciones que pueden no ser elegibles
+            </h2>
+
+            <p>
+                Salvo que la legislación aplicable disponga
+                lo contrario, una solicitud puede ser rechazada
+                cuando existan indicios razonables de:
+            </p>
+
+            <ul>
+                <li>
+                    Uso fraudulento del producto.
+                </li>
+
+                <li>
+                    Uso abusivo del sistema de reembolsos.
+                </li>
+
+                <li>
+                    Manipulación, intento de elusión
+                    o alteración del sistema de licencias.
+                </li>
+
+                <li>
+                    Distribución no autorizada
+                    del software o de la licencia.
+                </li>
+
+                <li>
+                    Solicitud presentada fuera
+                    del plazo establecido en esta política,
+                    cuando no exista una obligación legal
+                    de conceder el reembolso.
+                </li>
+            </ul>
+
+            <h2>
+                6. Resultados de trading
+            </h2>
+
+            <div class="notice-box">
+
+                <p>
+                    <strong>
+                        Los resultados de trading no constituyen
+                        una causa válida de reembolso por sí solos.
+                    </strong>
+                </p>
+
+                <p>
+                    Premarket Guardian PRO es una herramienta
+                    de preparación, organización y disciplina.
+                    No garantiza rentabilidad ni resultados financieros.
+                </p>
+
+                <p>
+                    Las decisiones de trading y sus resultados
+                    son responsabilidad exclusiva del usuario.
+                </p>
+
+            </div>
+
+            <h2>
+                7. Cómo solicitar un reembolso
+            </h2>
+
+            <p>
+                Para solicitar un reembolso,
+                comunícate con nuestro equipo de soporte.
+            </p>
+
+            <p>
+                Incluye, cuando sea posible:
+            </p>
+
+            <ul>
+                <li>
+                    Nombre utilizado durante la compra.
+                </li>
+
+                <li>
+                    Correo electrónico asociado a la compra.
+                </li>
+
+                <li>
+                    Fecha aproximada de la transacción.
+                </li>
+
+                <li>
+                    Motivo de la solicitud.
+                </li>
+
+                <li>
+                    Información adicional necesaria
+                    para identificar la transacción.
+                </li>
+            </ul>
+
+            <div class="notice-box">
+                <p>
+                    <strong>
+                        Correo para solicitudes de reembolso
+                    </strong>
+                </p>
+
+                <p>
+                    <a href="mailto:soporte@premarketguardian.com">
+                        soporte@premarketguardian.com
+                    </a>
+                </p>
+            </div>
+
+            <h2>
+                8. Procesamiento mediante Paddle
+            </h2>
+
+            <p>
+                Cuando una transacción sea procesada por Paddle,
+                Paddle actúa como Merchant of Record
+                y puede participar en la gestión
+                y procesamiento del reembolso.
+            </p>
+
+            <p>
+                El reembolso, cuando sea aprobado,
+                será procesado utilizando el método
+                y procedimiento disponible para
+                la transacción original.
+            </p>
+
+            <h2>
+                9. Tiempo de procesamiento
+            </h2>
+
+            <p>
+                Después de aprobarse un reembolso,
+                el tiempo necesario para que el dinero
+                aparezca nuevamente en el medio de pago
+                del cliente puede depender de Paddle,
+                la entidad bancaria, el emisor de la tarjeta
+                u otro proveedor de pagos.
+            </p>
+
+            <p>
+                Estos tiempos pueden variar
+                y no están completamente bajo nuestro control.
+            </p>
+
+            <h2>
+                10. Cancelación de la licencia
+            </h2>
+
+            <p>
+                Cuando se apruebe un reembolso completo,
+                la licencia asociada a la compra
+                podrá ser cancelada o desactivada.
+            </p>
+
+            <p>
+                Una vez reembolsada la compra,
+                el cliente dejará de estar autorizado
+                para utilizar el software bajo
+                la licencia correspondiente.
+            </p>
+
+            <h2>
+                11. Contracargos y disputas
+            </h2>
+
+            <p>
+                Recomendamos contactar primero
+                con nuestro equipo de soporte
+                antes de iniciar una disputa
+                o contracargo con la entidad financiera.
+            </p>
+
+            <p>
+                Esto nos permite revisar la compra
+                y buscar una solución de forma directa.
+            </p>
+
+            <h2>
+                12. Cambios en esta política
+            </h2>
+
+            <p>
+                Podemos actualizar esta Política de Reembolsos
+                cuando sea necesario debido a cambios comerciales,
+                operativos, legales o relacionados
+                con nuestros proveedores de pagos.
+            </p>
+
+            <p>
+                La versión vigente estará disponible
+                en esta página junto con su fecha
+                de última actualización.
+            </p>
+
+            <h2>
+                13. Contacto
+            </h2>
+
+            <p>
+                Para preguntas relacionadas con compras,
+                pagos, reembolsos o licencias,
+                puedes comunicarte con nuestro equipo.
+            </p>
+
+            <div class="notice-box">
+                <p>
+                    <strong>Soporte de Premarket Guardian PRO</strong>
+                </p>
+
+                <p>
+                    Correo electrónico:
+                    <br>
+
+                    <a href="mailto:soporte@premarketguardian.com">
+                        soporte@premarketguardian.com
+                    </a>
+                </p>
+            </div>
+
+            <footer class="legal-footer">
+
+                <div class="legal-footer-links">
+                    <a href="index.html">
+                        Inicio
+                    </a>
+
+                    <a href="privacidad.html">
+                        Política de Privacidad
+                    </a>
+
+                    <a href="terminos.html">
+                        Términos y Condiciones
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+                </div>
+
+                <div>
+                    © 2026 Premarket Guardian PRO.
+                    Todos los derechos reservados.
+                </div>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
