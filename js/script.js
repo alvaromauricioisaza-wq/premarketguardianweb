@@ -1,325 +1,331 @@
 // =========================================================
-// PAYPAL CHECKOUT - SANDBOX
+// PADDLE CHECKOUT - LIVE
+// PREMARKET GUARDIAN PRO
 // =========================================================
 
-const PAYPAL_WORKER_URL =
-    "https://premarket-guardian-license.alvaromauricioisaza.workers.dev";
+const PADDLE_CLIENT_TOKEN =
+    "live_b8ce07d2a11566d5e98943432bd";
 
-let paypalCheckoutInitialized = false;
+const PADDLE_PRICE_ID =
+    "pri_01kzct4nb2z3ga3sh1p7kf6a5j";
+
+let paddleInitialized = false;
+
+
+// =========================================================
+// INICIALIZAR AL CARGAR LA PÁGINA
+// =========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    const purchaseButtons = document.querySelectorAll(
-        ".paypal-open-button"
-    );
+
+    initializePaddleCheckout();
+
+    const purchaseButtons =
+        document.querySelectorAll(".paddle-open-button");
 
     purchaseButtons.forEach((button) => {
-        button.addEventListener("click", async (event) => {
+
+        button.addEventListener("click", (event) => {
+
             event.preventDefault();
 
-            const checkoutSection =
-                document.getElementById("paypal-checkout");
+            openPaddleCheckout();
 
-            if (!checkoutSection) {
-                console.error(
-                    "No se encontró la sección paypal-checkout."
-                );
-                return;
-            }
-
-            checkoutSection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-            if (!paypalCheckoutInitialized) {
-                paypalCheckoutInitialized = true;
-
-                try {
-                    await initializePayPalCheckout();
-                }
-                catch (error) {
-                    paypalCheckoutInitialized = false;
-                    showPayPalError(error);
-                }
-            }
         });
+
     });
+
 });
 
 
-async function initializePayPalCheckout() {
-    const loadingElement =
-        document.getElementById("paypal-loading");
+// =========================================================
+// INICIALIZAR PADDLE.JS
+// =========================================================
 
-    const configResponse = await fetch(
-        `${PAYPAL_WORKER_URL}/paypal/config`,
-        {
-            method: "GET",
-            headers: {
-                "Accept": "application/json"
-            }
-        }
-    );
+function initializePaddleCheckout() {
 
-    const config = await configResponse.json();
-
-    if (!configResponse.ok || !config.success) {
-        throw new Error(
-            config.message ||
-            "No fue posible obtener la configuración de PayPal."
-        );
-    }
-
-    await loadPayPalSdk(
-        config.clientId,
-        config.currency
-    );
-
-    if (loadingElement) {
-        loadingElement.style.display = "none";
-    }
-
-    renderPayPalButtons();
-}
-
-
-function loadPayPalSdk(clientId, currency) {
-    return new Promise((resolve, reject) => {
-        if (window.paypal) {
-            resolve();
-            return;
-        }
-
-        const existingScript =
-            document.getElementById("paypal-sdk-script");
-
-        if (existingScript) {
-            existingScript.addEventListener("load", resolve);
-            existingScript.addEventListener("error", reject);
-            return;
-        }
-
-        const script = document.createElement("script");
-
-        script.id = "paypal-sdk-script";
-
-        script.src =
-            "https://www.paypal.com/sdk/js" +
-            `?client-id=${encodeURIComponent(clientId)}` +
-            `&currency=${encodeURIComponent(currency)}` +
-            "&intent=capture" +
-            "&components=buttons";
-
-        script.onload = resolve;
-
-        script.onerror = () => {
-            reject(
-                new Error(
-                    "No fue posible cargar el sistema de pagos de PayPal."
-                )
-            );
-        };
-
-        document.head.appendChild(script);
-    });
-}
-
-
-function renderPayPalButtons() {
-    if (!window.paypal) {
-        throw new Error(
-            "El SDK de PayPal no está disponible."
-        );
-    }
-
-    const container =
-        document.getElementById("paypal-button-container");
-
-    if (!container) {
-        throw new Error(
-            "No se encontró el contenedor del botón de PayPal."
-        );
-    }
-
-    container.innerHTML = "";
-
-    window.paypal.Buttons({
-        style: {
-            layout: "vertical",
-            shape: "rect",
-            label: "paypal",
-            height: 48
-        },
-
-        createOrder: async () => {
-            clearPayPalResult();
-
-            const response = await fetch(
-                `${PAYPAL_WORKER_URL}/paypal/create-order`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify({})
-                }
-            );
-
-            const data = await response.json();
-
-            if (!response.ok || !data.success || !data.orderID) {
-                throw new Error(
-                    data.message ||
-                    "No fue posible crear la orden de PayPal."
-                );
-            }
-
-            return data.orderID;
-        },
-
-        onApprove: async (data) => {
-            console.log("ON APPROVE", data);
-            showPayPalProcessing();
-
-            const response = await fetch(
-                `${PAYPAL_WORKER_URL}/paypal/capture-order`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json"
-                    },
-                    body: JSON.stringify({
-                        orderID: data.orderID
-                    })
-                }
-            );
-
-            const result = await response.json();
-
-            if (!response.ok || !result.success) {
-                throw new Error(
-                    result.message ||
-                    "El pago fue aprobado, pero no pudo procesarse."
-                );
-            }
-
-            showPayPalSuccess(result);
-        },
-
-        onCancel: () => {
-            showPayPalMessage(
-                "El pago fue cancelado. No se realizó ningún cobro.",
-                false
-            );
-        },
-
-        onError: (error) => {
-            console.error(
-                "Error de PayPal:",
-                error
-            );
-
-            showPayPalError(error);
-        }
-    }).render("#paypal-button-container");
-}
-
-
-function showPayPalProcessing() {
-    const resultElement =
-        document.getElementById("paypal-result");
-
-    if (!resultElement) {
+    if (paddleInitialized) {
         return;
     }
 
-    resultElement.className = "";
-    resultElement.textContent =
-        "Pago aprobado. Estamos generando tu licencia...";
-}
+    if (!window.Paddle) {
 
+        console.error(
+            "Paddle.js no está disponible."
+        );
 
-function showPayPalSuccess(result) {
-    const resultElement =
-        document.getElementById("paypal-result");
-
-    if (!resultElement) {
         return;
     }
 
-    const licenseKey =
-        result.licenseKey || "Licencia generada";
+    try {
 
-    const customerEmail =
-        result.customerEmail || "";
+        Paddle.Initialize({
 
-    resultElement.className =
-        "paypal-success-message";
+            token: PADDLE_CLIENT_TOKEN,
 
-    resultElement.innerHTML = `
-        <strong>¡Compra completada correctamente!</strong>
-        <br><br>
-        Tu licencia es:
-        <br>
-        <strong>${escapeHtml(licenseKey)}</strong>
-        ${
-            customerEmail
-                ? `<br><br>Comprador: ${escapeHtml(customerEmail)}`
-                : ""
-        }
-        <br><br>
-        Guarda esta licencia en un lugar seguro.
+            eventCallback: function (event) {
+
+                handlePaddleEvent(event);
+
+            }
+
+        });
+
+        paddleInitialized = true;
+
+        console.log(
+            "Paddle Checkout inicializado correctamente."
+        );
+
+    }
+    catch (error) {
+
+        console.error(
+            "No fue posible inicializar Paddle:",
+            error
+        );
+
+    }
+
+}
+
+
+// =========================================================
+// ABRIR CHECKOUT
+// =========================================================
+
+function openPaddleCheckout() {
+
+    if (!window.Paddle) {
+
+        alert(
+            "El sistema de pagos todavía no está disponible. Intenta nuevamente en unos segundos."
+        );
+
+        return;
+    }
+
+    if (!paddleInitialized) {
+
+        initializePaddleCheckout();
+
+    }
+
+    if (!paddleInitialized) {
+
+        alert(
+            "No fue posible iniciar el sistema de pagos. Intenta nuevamente."
+        );
+
+        return;
+    }
+
+    try {
+
+        Paddle.Checkout.open({
+
+            items: [
+                {
+                    priceId: PADDLE_PRICE_ID,
+                    quantity: 1
+                }
+            ],
+
+            settings: {
+
+                displayMode: "overlay",
+
+                theme: "dark",
+
+                locale: "es"
+
+            }
+
+        });
+
+    }
+    catch (error) {
+
+        console.error(
+            "No fue posible abrir Paddle Checkout:",
+            error
+        );
+
+        alert(
+            "No fue posible abrir el pago seguro. Intenta nuevamente."
+        );
+
+    }
+
+}
+
+
+// =========================================================
+// EVENTOS DEL CHECKOUT
+// =========================================================
+
+function handlePaddleEvent(event) {
+
+    if (!event || !event.name) {
+        return;
+    }
+
+    console.log(
+        "Evento Paddle:",
+        event.name,
+        event
+    );
+
+
+    // -----------------------------------------------------
+    // CHECKOUT ABIERTO
+    // -----------------------------------------------------
+
+    if (event.name === "checkout.loaded") {
+
+        console.log(
+            "Checkout de Premarket Guardian PRO abierto."
+        );
+
+        return;
+    }
+
+
+    // -----------------------------------------------------
+    // PAGO COMPLETADO EN EL CHECKOUT
+    // -----------------------------------------------------
+
+    if (event.name === "checkout.completed") {
+
+        console.log(
+            "Compra completada en Paddle.",
+            event
+        );
+
+        showPurchaseCompletedMessage();
+
+        return;
+    }
+
+
+    // -----------------------------------------------------
+    // CHECKOUT CERRADO
+    // -----------------------------------------------------
+
+    if (event.name === "checkout.closed") {
+
+        console.log(
+            "El cliente cerró Paddle Checkout."
+        );
+
+    }
+
+}
+
+
+// =========================================================
+// MENSAJE DESPUÉS DEL CHECKOUT
+// =========================================================
+
+function showPurchaseCompletedMessage() {
+
+    const message = document.createElement("div");
+
+    message.id = "paddle-purchase-success";
+
+    message.style.position = "fixed";
+    message.style.left = "50%";
+    message.style.top = "50%";
+    message.style.transform = "translate(-50%, -50%)";
+    message.style.zIndex = "999999";
+    message.style.maxWidth = "520px";
+    message.style.width = "calc(100% - 40px)";
+    message.style.padding = "32px";
+    message.style.borderRadius = "18px";
+    message.style.background = "#0c1b31";
+    message.style.border = "1px solid #2d65a5";
+    message.style.boxShadow =
+        "0 20px 60px rgba(0,0,0,.55)";
+    message.style.color = "#ffffff";
+    message.style.textAlign = "center";
+    message.style.fontFamily =
+        "Arial, Helvetica, sans-serif";
+
+    message.innerHTML = `
+        <div style="
+            font-size:13px;
+            font-weight:700;
+            letter-spacing:1.5px;
+            color:#58a6ff;
+            margin-bottom:14px;
+        ">
+            PREMARKET GUARDIAN PRO
+        </div>
+
+        <h2 style="
+            margin:0 0 16px;
+            font-size:26px;
+        ">
+            ¡Compra completada!
+        </h2>
+
+        <p style="
+            margin:0 0 12px;
+            line-height:1.7;
+            color:#d7e3f4;
+        ">
+            Tu pago fue procesado correctamente.
+        </p>
+
+        <p style="
+            margin:0 0 24px;
+            line-height:1.7;
+            color:#d7e3f4;
+        ">
+            Estamos generando tu licencia de Premarket Guardian PRO.
+            Recibirás por correo tu licencia y el acceso al portal
+            de descargas.
+        </p>
+
+        <button
+            id="paddle-success-close"
+            type="button"
+            style="
+                border:0;
+                border-radius:10px;
+                padding:13px 24px;
+                background:#2d8cff;
+                color:#ffffff;
+                font-size:15px;
+                font-weight:700;
+                cursor:pointer;
+            "
+        >
+            Entendido
+        </button>
     `;
-}
 
+    const existing =
+        document.getElementById("paddle-purchase-success");
 
-function showPayPalError(error) {
-    const message =
-        error instanceof Error
-            ? error.message
-            : "Ocurrió un error inesperado con PayPal.";
-
-    showPayPalMessage(message, true);
-}
-
-
-function showPayPalMessage(message, isError) {
-    const resultElement =
-        document.getElementById("paypal-result");
-
-    if (!resultElement) {
-        return;
+    if (existing) {
+        existing.remove();
     }
 
-    resultElement.className =
-        isError
-            ? "paypal-error-message"
-            : "";
+    document.body.appendChild(message);
 
-    resultElement.textContent = message;
-}
+    const closeButton =
+        document.getElementById("paddle-success-close");
 
+    if (closeButton) {
 
-function clearPayPalResult() {
-    const resultElement =
-        document.getElementById("paypal-result");
+        closeButton.addEventListener(
+            "click",
+            () => {
+                message.remove();
+            }
+        );
 
-    if (!resultElement) {
-        return;
     }
 
-    resultElement.className = "";
-    resultElement.textContent = "";
-}
-
-
-function escapeHtml(value) {
-    return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
 }
